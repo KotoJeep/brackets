@@ -1,7 +1,8 @@
 module.exports = function check(str, bracketsConfig) {
 	// your solution
 	let stack = [],
-		configObj = Object.fromEntries(bracketsConfig.map((arr) => arr.reverse()));
+		confclone = bracketsConfig.map((item) => [...item]), // слонирование массива конфига, чтобы не изменять его
+		configObj = Object.fromEntries(confclone.map((arr) => arr.reverse()));
 
 	for (let i = 0; i < str.length; i++) {
 		const bracket = str[i];
